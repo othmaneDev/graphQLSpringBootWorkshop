@@ -1,0 +1,44 @@
+type Talk {
+    id: ID!
+    title: String!
+    description: String
+    speakers :[Speaker]
+}
+
+input inSpeaker {
+    name:String!
+    twitter:String
+}
+type Speaker{
+    id: ID!
+    name: String!
+    twitter: String
+}
+
+type Mutation{
+    addSpeaker(speaker:inSpeaker): Speaker
+    addSpeakerFromName(speaker:String): Speaker
+}
+
+union All = Talk | Speaker
+
+type Query {
+    allTalks: [Talk]
+    allSpeakers : [Speaker]
+    allAll : [All]
+}
+
+type Score {
+    title: String!
+    score: Int
+}
+
+type Subscription {
+    talkScores(title: String!): Score
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}

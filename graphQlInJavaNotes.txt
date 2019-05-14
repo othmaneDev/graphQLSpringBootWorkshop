@@ -1,0 +1,10 @@
+* GraphQl is a query language for APIS, is a specification (as a developer we work with implementations of specifications)
+* GraphQL use SDL(Schema Definition language) + Query language
+* In GraphQL schema is MANDATORY (Every request sent in the request is validated by the schema in server side if not valid the server reject it with an error), also the server send the schema to the client so that why we have autocomplete on the tool graphiQl (see later)
+* For the workshop, we used the java implementation of graphQL -> graphql-java ( graph-ql-java-kickstart servlet or spring-boot on github)
+* Get the code from : https://github.com/vladimir-dejanovic/graphql-in-java-workshop
+* When starting an app with graphQl , we use graphiQl to play with it , nice tool with autocompletion
+* graphQl do not care about performance, this need to be handle by developer, it only resolved query according to a certain schema
+* we can do mutation (insertion in db) using graphQL
+* GraphQl is powerful but without keeping attention , it can kill the backend system very easily
+* GraphQL offer also Subscription 

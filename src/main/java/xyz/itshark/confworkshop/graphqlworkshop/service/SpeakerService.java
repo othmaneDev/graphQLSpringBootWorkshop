@@ -26,10 +26,10 @@ public class SpeakerService {
     }
 
     public List<Speaker> findAllSpeakersForTalk(Talk talk) {
-        List<SpeakerTalk> st = speakerTalkRepository.findAllByTalkId(talk.getId());
+        List<SpeakerTalk> speakerTalks = speakerTalkRepository.findAllByTalkId(talk.getId());
 
-        return st.stream()
-                .map(e -> speakerRepository.findById(e.getSpeakerId()))
+        return speakerTalks.stream()
+                .map(speakerTalk -> speakerRepository.findById(speakerTalk.getSpeakerId()))
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(Collectors.toList());
